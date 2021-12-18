@@ -68,6 +68,10 @@ body{
 
 #container{
 	width: 100%;
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+	overflow: hidden;
 }
 
 /*
@@ -87,15 +91,15 @@ body{
 }
 */
 .content{
-	width: 90%;
-	margin:10px auto;
+	/*width: 90%;*/
+	/*margin:10px auto;*/
 	/* background-color: #F8F8F8; */
 	/* border:1px solid #ccc; */
 	/* box-shadow:0 0 10px #999; */
-	padding:2em;
-	line-height:1.4em;
-    font:13.34px YaHei Consolas Hybrid;
-    color:black;
+	/*padding:2em;*/
+	/*line-height:1.4em;*/
+    /*font:13.34px YaHei Consolas Hybrid;*/
+    /*color:black;*/
 }
 
 #text-container{
@@ -103,6 +107,18 @@ body{
 	line-height: 150%;
 	font-size: 14px;
 }
+
+#markdown-container {
+	display: block;
+	flex: 1;
+	height: auto;
+	margin: 10px auto;
+	padding: 20px 20px 20px 40px;
+	font:13.34px YaHei Consolas Hybrid;
+	color:black;
+	overflow: auto;
+}
+
 #markdown-container table{
 	font:13.34px helvetica,arial,freesans,clean,sans-serif;
 	color:black;
@@ -150,10 +166,10 @@ dd{margin-left:2em;margin-bottom:1em;}
 }
 */
 #markdown-outline{
-	position:fixed;
-	width:280px;
-	top:10px;
-	right:10px;
+	display: flex;
+	flex: 0 0 300px;
+	height: auto;
+	margin: 10px;
 	border:1px solid #ccc;
 	box-shadow:5px 5px 2px #ccc;
 	padding: 5px 10px;

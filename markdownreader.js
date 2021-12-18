@@ -3,7 +3,18 @@
 	//忽略HTML代码
 	if (document.doctype) return;
 
-    document.write('<!DOCTYPE html><html><head><body><div id="container" class="viewport-flip"><div id="text-container" class="content flip" style="display:none;"></div><div id="markdown-container" class="content flip"></div></div><div id="markdown-outline"></div> <div id="markdown-outline-toggle"></div> <div id="markdown-backTop" onclick="window.scrollTo(0,0);"></div> </body></html>');
+    document.write('<!DOCTYPE html><html>' +
+		'<head>' +
+		'<body>' +
+		'  <div id="container" class="viewport-flip">' +
+		'    <div id="text-container" class="content flip" style="display:none;"></div>' +
+		'    <div id="markdown-container" class="content flip"></div>' +
+		'    <div id="markdown-outline"></div>' +
+		'  </div>' +
+		'  <div id="markdown-outline-toggle"></div>' +
+		'  <div id="markdown-backTop" onclick="window.scrollTo(0,0);"></div>' +
+		'</body>' +
+		'</html>');
     document.close();
 	
 	$("#markdown-outline-toggle").on("click", toggleOutline);
