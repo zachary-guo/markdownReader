@@ -72,6 +72,7 @@ body{
 	flex-direction: row;
 	height: 100%;
 	overflow: hidden;
+	font-family: YaHei Consolas Hybrid;
 }
 
 /*
@@ -138,7 +139,7 @@ a{color:#4183c4;text-decoration:none;}
 a:hover{text-decoration:underline;}
 a code,a:link code,a:visited code{color:#4183c4;}
 h2,h3{margin:1em 0;}
-h1,h2,h3,h4,h5,h6{border:0;}
+h1,h2,h3,h4,h5,h6{border:0; color: #00007F }
 h1{font-size:170%;border-bottom:4px solid #aaa;padding-bottom:.5em;margin-top:1.5em;}
 h1:first-child{margin-top:0;padding-top:.25em;border-top:none;}
 h2{font-size:150%;margin-top:1.5em;border-bottom:4px solid #e0e0e0;padding-bottom:.5em;}
@@ -274,4 +275,20 @@ code.inline {
         border: 0 !important;
         box-shadow: 0 !important;
     }
+}
+
+code {
+	font-family: Consolas;
+}
+
+.content h1 i, .content h2 i, .content h3 i, .content h4 i, .content h5 i, .content h6 i {
+	float: left;
+	display: block;
+	padding: 0px 6px 0px 6px;
+	margin-right: 16px;
+	font-style: normal;
+	color: #fff;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #828ec9;
 }

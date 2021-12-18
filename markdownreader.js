@@ -113,6 +113,8 @@
 	        })
 			updateOutline();
 		}
+
+		handleToc();
 	}
 
 	function updateOutline() {
@@ -197,5 +199,39 @@
 	}
 
 	checkUpdate();
+
+	// [TOC]
+	/**
+	 * 制作 1-6 级标题多级序号，如 2.4.8.1
+	 * @h 开始处理这个标题的下级标题，比如 $h = $("h2")，那么接下来要处理 h2 下的 h3，并做递归地处理 h3 下的 h4。当 $h 的 level = 6 时停止递归
+	 */
+	function docs($h) {
+		var hLevel = parseInt($h.get(0).localName.replace(/h/i, ""));
+		if (hLevel == 6) {
+			return;
+		}
+		var ctoc = $h.attr("toc");
+		$h.nextAll("h" + (hLevel + 1)).each(function(i) {
+			var ntoc = ctoc + "." + (i + 1);
+			if ($(this).find("i").length == 0) {
+				$(this).attr("toc", ntoc).prepend("<i>" + ntoc + "</i>");
+			} else {
+				$(this).attr("toc", ntoc).find("i").text(ntoc);
+			}
+			docs($(this));
+		});
+	}
+	function handleToc() {
+		// 处理页面将 h1 作为顶级标题，或将 h2 作为顶级标题，等等
+		var hs = ["h1", "h2", "h3", "h4", "h5", "h6"];
+		$.each(hs, function(i, h) {
+			$(".content " + h).each(function(i) {
+				if (!$(this).attr("toc")) {
+					$(this).attr("toc", i + 1).prepend("<i>" + (i + 1) + "</i>");
+					docs($(this));
+				}
+			});
+		})
+	}
 
 }(document));
