@@ -122,3 +122,7 @@ Thanks
 * Katex: [https://github.com/Khan/KaTeX](https://github.com/Khan/KaTeX)
 * highlightjs: [https://highlightjs.org/](https://highlightjs.org/)
 * GitHub: [https://github.com/](https://github.com/)
+
+About Frame
+================
+https://stackoverflow.com/questions/6570363/chrome-extension-content-scripts-and-iframe
