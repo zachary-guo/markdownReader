@@ -3,8 +3,23 @@
 	//忽略HTML代码
 	if (document.doctype) return;
 
-    document.write('<!DOCTYPE html><html><head><body><div id="container" class="viewport-flip"><div id="text-container" class="content flip" style="display:none;"></div><div id="markdown-container" class="content flip"></div></div><div id="markdown-outline"></div><div id="markdown-backTop" onclick="window.scrollTo(0,0);"></div></body></html>');
+    document.write('<!DOCTYPE html><html><head><body><div id="container" class="viewport-flip"><div id="text-container" class="content flip" style="display:none;"></div><div id="markdown-container" class="content flip"></div></div><div id="markdown-outline"></div> <div id="markdown-outline-toggle"></div> <div id="markdown-backTop" onclick="window.scrollTo(0,0);"></div> </body></html>');
     document.close();
+	
+	$("#markdown-outline-toggle").on("click", toggleOutline);
+	
+	var isCtrl = false;
+	$(document).keydown(function(event) {
+        // 88 是 x 键，17 是 ctrl 键
+        if (isCtrl && event.keyCode == 88) {
+            toggleOutline();
+        }
+		isCtrl = (event.keyCode == 17);
+    }); 
+	
+	function toggleOutline() {
+		$("#markdown-outline").toggle(300);
+	}
 
 	var link = document.createElement('link');
 	link.rel = 'stylesheet';
@@ -22,7 +37,7 @@
 	document.head.appendChild(link);
 
 	window.onresize = showOutline;
-
+	
 	var jTextContainer = $('#text-container');
 	var jMarkdownContainer = $('#markdown-container');
 	var jOutline = $('#markdown-outline');
@@ -142,8 +157,9 @@
 	function showOutline() {
 		if(outlineCount > 0){
 			var offset = jMarkdownContainer.offset();
+			// alert("jMarkdownContainer.offset() = " + offset.left + ", jMarkdownContainer.outerWidth() = " + jMarkdownContainer.outerWidth())
 			jOutline.css({
-				left: offset.left + jMarkdownContainer.outerWidth() + 10 + 'px',
+				// left: offset.left + jMarkdownContainer.outerWidth() + 10 + 'px',
 				maxHeight: document.body.clientHeight - 30
 			}).show();
 		}

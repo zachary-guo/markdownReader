@@ -69,12 +69,14 @@ body{
 #container{
 	width: 100%;
 }
+
+/*
 .content{
 	position: absolute;
 	left: 50%;
-	width: 748px;
+	width: 1300px;
 	margin:10px auto;
-	margin-left: -374px;
+	margin-left: -930px;
 	background-color: #F8F8F8;
 	border:1px solid #ccc;
 	box-shadow:0 0 10px #999;
@@ -83,6 +85,19 @@ body{
     font:13.34px helvetica,arial,freesans,clean,sans-serif;
     color:black;
 }
+*/
+.content{
+	width: 90%;
+	margin:10px auto;
+	/* background-color: #F8F8F8; */
+	/* border:1px solid #ccc; */
+	/* box-shadow:0 0 10px #999; */
+	padding:2em;
+	line-height:1.4em;
+    font:13.34px YaHei Consolas Hybrid;
+    color:black;
+}
+
 #text-container{
 	white-space: pre-wrap;
 	line-height: 150%;
@@ -121,11 +136,24 @@ blockquote{margin:1em 0;border-left:5px solid #ddd;padding-left:.6em;color:#555;
 dt{font-weight:bold;margin-left:1em;}
 dd{margin-left:2em;margin-bottom:1em;}
 
+/*
 #markdown-outline{
 	display:none;
 	position:fixed;
 	top:10px;
 	left:-999px;
+	border:1px solid #ccc;
+	box-shadow:5px 5px 2px #ccc;
+	padding: 5px 10px;
+	background-color: #fff;
+	overflow-y: auto;
+}
+*/
+#markdown-outline{
+	position:fixed;
+	width:280px;
+	top:10px;
+	right:10px;
 	border:1px solid #ccc;
 	box-shadow:5px 5px 2px #ccc;
 	padding: 5px 10px;
@@ -144,6 +172,19 @@ dd{margin-left:2em;margin-bottom:1em;}
 #markdown-outline li{
 	list-style-type:decimal;
 	margin:3px 0;
+}
+
+#markdown-outline-toggle {
+	position: fixed;
+	right:10px;
+	top:10px;
+	padding:5px;
+	width:15px;
+	height:15px;
+	background:url(images/outline.png) no-repeat 5px 5px #fff;
+	background-size: 15px 15px;
+	border:1px solid #ccc;
+	cursor:pointer;
 }
 
 #markdown-backTop{
@@ -195,7 +236,7 @@ pre{
 code.inline {
 	padding: 1px 3px;
 	font-size: .72rem;
-	line-height: 1.12rem;
+	line-height: .72rem;
 	color: #c25;
 	background-color: #f7f7f9;
 	-webkit-border-radius: 3px;
