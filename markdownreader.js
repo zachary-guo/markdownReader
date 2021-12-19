@@ -1,4 +1,7 @@
 (function(document) {
+
+	// 一开始就获得原始 markdown 的内容
+	var originalText = document.body.innerText;
 	
 	//忽略HTML代码
 	if (document.doctype) return;
@@ -198,7 +201,11 @@
 		if (bLocalFile) setTimeout(checkUpdate, 500);
 	}
 
-	checkUpdate();
+	if (bLocalFile) { // 直接使用本地 md 文件
+		updateMarkdown(originalText);
+	} else { // 使用 url 的 md 文件
+		checkUpdate();
+	}
 
 	// [TOC]
 	/**
